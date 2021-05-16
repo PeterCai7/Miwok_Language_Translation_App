@@ -36,7 +36,7 @@ public class NumbersTranslationActivity extends AppCompatActivity {
             wordView.setText(iterator.next());
             rootView.addView(wordView);
         }*/
-        ArrayAdapter<String> itemsAdaptor = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, words);
+        ArrayAdapter<String> itemsAdaptor = new ArrayAdapter<>(this, R.layout.words_list_item, words);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(itemsAdaptor);
 
