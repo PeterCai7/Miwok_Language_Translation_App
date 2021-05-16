@@ -22,9 +22,18 @@ public class NumbersTranslationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers_translation);
 
-        String[] wordsArray = {"one", "two", "three", "four", "five",
-                "six", "seven", "eight", "nine", "ten"};
-        ArrayList<String> words = new ArrayList<>(Arrays.asList(wordsArray));
+        // Create a list of words
+        ArrayList<Word> words = new ArrayList<Word>();
+        words.add(new Word("one", "lutti"));
+        words.add(new Word("two", "otiiko"));
+        words.add(new Word("three", "tolookosu"));
+        words.add(new Word("four", "oyyisa"));
+        words.add(new Word("five", "massokka"));
+        words.add(new Word("six", "temmokka"));
+        words.add(new Word("seven", "kenekaku"));
+        words.add(new Word("eight", "kawinta"));
+        words.add(new Word("nine", "wo’e"));
+        words.add(new Word("ten", "na’aacha"));
 
         //LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
 
@@ -36,7 +45,7 @@ public class NumbersTranslationActivity extends AppCompatActivity {
             wordView.setText(iterator.next());
             rootView.addView(wordView);
         }*/
-        ArrayAdapter<String> itemsAdaptor = new ArrayAdapter<>(this, R.layout.words_list_item, words);
+        WordAdapter itemsAdaptor = new WordAdapter(this, words);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(itemsAdaptor);
 
