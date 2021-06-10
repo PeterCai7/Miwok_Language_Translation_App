@@ -3,17 +3,22 @@ package com.example.android.miwok;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
+    // This field stores the Resource id of backgroud color of text view inside of list item layout
+    // for each categories.
+    private int backgroundColorId;
     /**
      * This is our own custom constructor (it doesn't mirror a superclass constructor).
      * The context is used to inflate the layout file, and the list is the data we want
@@ -22,12 +27,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
      * @param context The current context. Used to inflate the layout file.
      * @param wordsList A List of word objects to display in a list
      */
-    public WordAdapter(Activity context, ArrayList<Word> wordsList) {
+    public WordAdapter(Activity context, ArrayList<Word> wordsList, int colorId) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
         // the second argument is used when the ArrayAdapter is populating a single TextView.
         // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
         // going to use this second argument, so it can be any value. Here, we used 0.
         super(context, 0, wordsList);
+        backgroundColorId = colorId;
     }
 
     /**
@@ -48,6 +54,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.words_list_item, parent, false);
         }
+        //set backgroud color for parent linear layout of two text views
+        LinearLayout linearLayout= (LinearLayout) listItemView.findViewById(R.id.text_container);
+        int colorHex = ContextCompat.getColor(getContext(), backgroundColorId);
+        linearLayout.setBackgroundColor(colorHex);
 
         // Get the {@link AndroidFlavor} object located at this position in the list
         Word currentWord = getItem(position);

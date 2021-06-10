@@ -4,13 +4,12 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="16dp"
-    android:paddingLeft="16dp">
+    android:minHeight="@dimen/list_item_height_width"
+    android:background="@color/tan_background">
     <ImageView
         android:id="@+id/list_item_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"/>
+        android:layout_width="@dimen/list_item_height_width"
+        android:layout_height="@dimen/list_item_height_width"/>
     <LinearLayout
         android:id="@+id/text_container"
         android:layout_width="match_parent"
@@ -20,12 +19,22 @@
         <TextView
             android:id="@+id/miwok_text_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:gravity="bottom"
             tools:text="lutti"/>
         <TextView
             android:id="@+id/default_text_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:textStyle="italic"
+            android:gravity="top"
             tools:text="one"/>
     </LinearLayout>
 </LinearLayout>

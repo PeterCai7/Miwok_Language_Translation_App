@@ -3,6 +3,7 @@ package com.example.android.miwok;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -20,7 +21,7 @@ public class NumbersTranslationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers_translation);
+        setContentView(R.layout.word_list);
 
         // Create a list of words
         ArrayList<Word> words = new ArrayList<Word>();
@@ -45,9 +46,8 @@ public class NumbersTranslationActivity extends AppCompatActivity {
             wordView.setText(iterator.next());
             rootView.addView(wordView);
         }*/
-        WordAdapter itemsAdaptor = new WordAdapter(this, words);
+        WordAdapter itemsAdaptor = new WordAdapter(this, words, R.color.category_numbers);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(itemsAdaptor);
-
     }
 }
