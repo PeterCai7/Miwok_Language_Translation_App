@@ -1,9 +1,11 @@
-package com.example.android.miwok;
+ package com.example.android.miwok;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -16,7 +18,7 @@ import java.util.List;
 
 public class NumbersTranslationActivity extends AppCompatActivity {
     private final static String LOG_TAG = "NumbersTransActivity";
-
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,7 @@ public class NumbersTranslationActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         // Create a list of words
-        ArrayList<Word> words = new ArrayList<Word>();
+        ArrayList<Word> words = new ArrayList<>();
         words.add(new Word("one", "lutti", R.drawable.number_one));
         words.add(new Word("two", "otiiko", R.drawable.number_two));
         words.add(new Word("three", "tolookosu", R.drawable.number_three));
@@ -36,18 +38,16 @@ public class NumbersTranslationActivity extends AppCompatActivity {
         words.add(new Word("nine", "wo’e", R.drawable.number_nine));
         words.add(new Word("ten", "na’aacha", R.drawable.number_ten));
 
-        //LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
-
-        //using a while loop to add wordViews repetitively
-        //discard this method due to limited memory
-        /*Iterator<String> iterator = words.iterator();
-        while(iterator.hasNext()) {
-            TextView wordView = new TextView(this);
-            wordView.setText(iterator.next());
-            rootView.addView(wordView);
-        }*/
         WordAdapter itemsAdaptor = new WordAdapter(this, words, R.color.category_numbers);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(itemsAdaptor);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                mediaPlayer = MediaPlayer.create(NumbersTranslationActivity.this, R.raw.sample_sound);
+                mediaPlayer.start();
+            }
+        });
     }
 }
