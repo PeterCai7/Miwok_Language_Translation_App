@@ -60,4 +60,18 @@ public class Word {
     public boolean hasImage() {
         return imgResId != NO_IMAGE_PROVIDED;
     }
+
+    /**
+     * Returns the string representation of the {@link Word} object.
+     */
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + defaultTranslation + '\'' +
+                ", mMiwokTranslation='" + miwokTranslation + '\'' +
+                ", mAudioResourceId=" + mAudioResourceId +
+                ", mImageResourceId=" + imgResId +
+                '}';
+    }
+
 }
