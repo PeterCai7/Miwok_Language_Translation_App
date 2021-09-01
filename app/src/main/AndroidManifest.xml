@@ -9,18 +9,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".PhrasesTranslationActivity"
+            android:name=".activities.PhrasesTranslationActivity"
             android:label="@string/category_phrases"/>
         <activity
-            android:name=".ColorsTranslationActivity"
+            android:name=".activities.ColorsTranslationActivity"
             android:label="@string/category_colors"/>
         <activity
-            android:name=".FamilyTranslationActivity"
+            android:name=".activities.FamilyTranslationActivity"
             android:label="@string/category_family"/>
         <activity
-            android:name=".NumbersTranslationActivity"
+            android:name=".activities.NumbersTranslationActivity"
             android:label="@string/category_numbers"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

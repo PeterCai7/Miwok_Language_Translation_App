@@ -1,4 +1,4 @@
-package com.example.android.miwok;
+package com.example.android.miwok.activities;
 
 import android.content.Context;
 import android.media.AudioManager;
@@ -8,6 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.example.android.miwok.R;
+import com.example.android.miwok.Word;
+import com.example.android.miwok.WordAdapter;
 
 import java.util.ArrayList;
 
