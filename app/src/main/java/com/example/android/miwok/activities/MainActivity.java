@@ -17,14 +17,15 @@ package com.example.android.miwok.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.android.miwok.MiwokFragmentPagerAdapter;
 import com.example.android.miwok.R;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,39 +33,13 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-        //Find four textView by ID
-        TextView numbersTextView = (TextView) findViewById(R.id.numbers);
-        TextView colorsTextView = (TextView) findViewById(R.id.colors);
-        TextView familyTextView = (TextView) findViewById(R.id.family);
-        TextView phrasesTextView = (TextView) findViewById(R.id.phrases);
+        // Find the view pager that will allow the user to swipe between fragments
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        // Set  onclick listener on those above views
-        numbersTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, NumbersTranslationActivity.class));
-            }
-        });
-        colorsTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ColorsTranslationActivity.class));
-            }
-        });
-        familyTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, FamilyTranslationActivity.class));
-            }
-        });
-        phrasesTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, PhrasesTranslationActivity.class));
-            }
-        });
+        // Create an adapter that knows which fragment should be shown on each page
+        MiwokFragmentPagerAdapter adapter = new MiwokFragmentPagerAdapter(getSupportFragmentManager());
 
+        // Set the adapter onto the view pager
+        viewPager.setAdapter(adapter);
     }
-
-
 }
