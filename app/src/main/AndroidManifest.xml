@@ -8,18 +8,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".activities.PhrasesTranslationActivity"
-            android:label="@string/category_phrases"/>
-        <activity
-            android:name=".activities.ColorsTranslationActivity"
-            android:label="@string/category_colors"/>
-        <activity
-            android:name=".activities.FamilyTranslationActivity"
-            android:label="@string/category_family"/>
-        <activity
-            android:name=".activities.NumbersTranslationActivity"
-            android:label="@string/category_numbers"/>
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
